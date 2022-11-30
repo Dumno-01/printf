@@ -6,11 +6,11 @@
 /*   By: ffreze <ffreze@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 13:56:40 by ffreze            #+#    #+#             */
-/*   Updated: 2022/11/30 15:51:09 by ffreze           ###   ########.fr       */
+/*   Updated: 2022/11/30 17:51:29 by ffreze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 static	long int	ft_neg(long int nb)
 {
@@ -19,26 +19,30 @@ static	long int	ft_neg(long int nb)
 	return (nb);
 }
 
-long	ft_putnbr_fd(int n)
+long	ft_putnbr(int n, int len)
 {
 	long int	mod;
 	long int	nb;
 	size_t		i;
 
 	nb = n;
+	i = 0;
 	if (nb < 0)
+	{
 		nb = ft_neg(nb);
+		len++;
+	}
 	if (nb > 9)
 	{
 		mod = nb % 10 + 48;
 		nb = nb / 10;
-		ft_putnbr_fd(nb);
-		i += write(1, &mod, 1);
+		ft_putnbr(nb, len);
+		len += write(1, &mod, 1);
 	}
 	else
 	{
 		nb = nb + 48;
-		i += write (1, &nb, 1);
+		len += write (1, &nb, 1);
 	}
-	return (i);
+	return (len);
 }

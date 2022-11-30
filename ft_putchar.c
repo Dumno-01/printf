@@ -6,16 +6,14 @@
 /*   By: ffreze <ffreze@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 13:34:33 by ffreze            #+#    #+#             */
-/*   Updated: 2022/11/30 15:50:15 by ffreze           ###   ########.fr       */
+/*   Updated: 2022/11/30 17:57:01 by ffreze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 int	ft_putchar(char c)
 {
-	size_t	i;
-
-	i = write(1, &c, 1);
-	return (i);
+	write(1, &c, 1);
+	return (1);
 }
