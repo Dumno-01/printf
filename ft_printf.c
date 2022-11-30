@@ -6,7 +6,7 @@
 /*   By: ffreze <ffreze@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 11:41:29 by ffreze            #+#    #+#             */
-/*   Updated: 2022/11/30 18:04:18 by ffreze           ###   ########.fr       */
+/*   Updated: 2022/11/30 18:11:12 by ffreze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ int	ft_printf(const	char *s, ...)
 
 int main()
 {
- printf("%d\n", printf(" %s %s ", "", "-"));
- printf("%d\n", ft_printf(" %s %s ", "", "-"));
+	int a =  printf(" %s %s ", "", "-");
+	int b =  ft_printf(" %s %s ", "", "-");
+ printf("true=%d ft=%d\n", a, b);
+//  printf("%d\n", ft_printf(" %s %s ", "", "-"));
 }
