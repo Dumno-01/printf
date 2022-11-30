@@ -6,7 +6,7 @@
 /*   By: ffreze <ffreze@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 13:49:51 by ffreze            #+#    #+#             */
-/*   Updated: 2022/11/30 17:54:10 by ffreze           ###   ########.fr       */
+/*   Updated: 2022/11/30 17:58:56 by ffreze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ long	ft_putstr(char *s, int len)
 	{
 		write(1, &s[i], 1);
 		i++;
+		len++;
 	}
-	return (len + i);
+	return (len);
 }
