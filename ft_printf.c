@@ -17,17 +17,17 @@ static	long	ft_ftapply(unsigned long c, va_list list, long len)
 	if (c == 'c')
 		return (ft_putchar(va_arg(list, long)));
 	if (c == 's')
-		return (ft_putstr(va_arg(list, char *), len));
+		return (ft_putstr(va_arg(list, char *)));
 	if (c == 'p')
-		return (ft_phexa(va_arg(list, unsigned long long), len));
+		return (ft_phexa(va_arg(list, unsigned long long), 1, HEXA_LOWER));
 	if (c == 'd' && c == 'i')
-		return (ft_putnbr(va_arg(list, long), len));
+		return (ft_pnbr(va_arg(list, long)));
 	if (c == 'u')
-		return (ft_putnbr(va_arg(list, unsigned long), len));
+		return (ft_pnbr(va_arg(list, unsigned long)));
 	if (c == 'x')
-		return (ft_puthexa(va_arg(list, long), HEXA_LOWER, len));
+		return (ft_phexa(va_arg(list, unsigned long long), 0, HEXA_LOWER));
 	if (c == 'X')
-		return (ft_puthexa(va_arg(list, long), HEXA_UPPER, len));
+		return (ft_phexa(va_arg(list, unsigned long long), 0, HEXA_UPPER));
 	if (c == '%')
 	{
 		ft_putchar(c);
@@ -50,7 +50,7 @@ static	long	ft_checkletter(const char *s, size_t x)
 int	ft_printf(const	char *s, ...)
 {
 	size_t	x;
-	size_t	len;
+	long	len;
 	va_list	list;
 
 	x = 0;
@@ -70,12 +70,4 @@ int	ft_printf(const	char *s, ...)
 	}
 	va_end(list);
 	return (len);
-}
-
-int main()
-{
-	int a =  printf(" %s %s ", "", "-");
-	int b =  ft_printf(" %s %s ", "", "-");
- printf("true=%d ft=%d\n", a, b);
-//  printf("%d\n", ft_printf(" %s %s ", "", "-"));
 }

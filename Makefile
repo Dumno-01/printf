@@ -3,6 +3,7 @@ SRCS	=	ft_printf.c\
 			ft_putchar.c\
 			ft_putnbr.c\
 			ft_putstr.c\
+			ft_countwrite.c\
 
 HEAD	=	ft_printf.h
 
@@ -19,7 +20,7 @@ RM		=	rm -f
 FLAG	=	-Wall -Wextra -Werror
 
 %.o: %.c Makefile $(HEAD)
-		$(CC) $(FLAG) -c $< -o $@ -I $(HEAD)
+		$(CC) $(FLAG) -c $< -o $@ -I.
 
 $(NAME)	:	$(OBJS)
 		$(ARC) $(NAME) $(OBJS)

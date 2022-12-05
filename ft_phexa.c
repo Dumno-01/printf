@@ -12,22 +12,28 @@
 
 #include "ft_printf.h"
 
-long int	ft_puthexa(size_t nb, char *base, long len)
+void	ft_puthexa(unsigned long long nb, char *base, long *len)
 {
 	if (nb < 16)
-		write(1, &nb, 1);
+		ft_countwrite(len, base[nb]);
 	if (nb > 16)
 	{
-		len += ft_puthexa(nb / 16, base, len);
+		ft_puthexa(nb / 16, base, len);
 		ft_puthexa(nb % 16, base, len);
 	}
-	return (len);
 }
 
-long int	ft_phexa(size_t nb, long len)
+long int	ft_phexa(unsigned long long nb, int ispointer, char *base)
 {
-	write(1, "0x", 2);
-	len += 2;
-	ft_puthexa(nb, HEXA_LOWER, len);
-	return (len);
+	long	l;
+
+	if(ispointer == 1)
+	{
+		write(1, "0x", 2);
+		l = 2;
+	}
+	else
+		l = 0;
+	ft_puthexa(nb, base, &l);
+	return (l);
 }

@@ -12,37 +12,42 @@
 
 #include "ft_printf.h"
 
-static	long int	ft_neg(long int nb)
+static	long int	ft_neg(long int nb, long *len)
 {
 	nb *= -1;
-	write(1, "-", 1);
+	ft_countwrite(len, '-');
 	return (nb);
 }
 
-long	ft_putnbr(int n, int len)
+void	ft_putnbr(int n, long *len)
 {
 	long int	mod;
 	long int	nb;
-	size_t		i;
 
 	nb = n;
-	i = 0;
 	if (nb < 0)
 	{
-		nb = ft_neg(nb);
-		len++;
+		nb = ft_neg(nb, len);
 	}
 	if (nb > 9)
 	{
-		mod = nb % 10 + 48;
+		mod = nb % 10 + '0';
 		nb = nb / 10;
 		ft_putnbr(nb, len);
-		len += write(1, &mod, 1);
+		ft_countwrite(len, mod);		
 	}
 	else
 	{
-		nb = nb + 48;
-		len += write (1, &nb, 1);
-	}
-	return (len);
+		nb = nb + '0';
+		ft_countwrite(len, nb);
+	};
+}
+
+long int	ft_pnbr(size_t nb)
+{
+	long	l;
+
+	l = 0;
+	ft_putnbr(nb, &l);
+	return (l);
 }

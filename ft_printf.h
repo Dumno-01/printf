@@ -14,14 +14,17 @@
 # define FT_PRINTF_H
 # include <unistd.h>
 # include <stdarg.h>
+#include <stdio.h>
 
 # define HEXA_LOWER "0123456789abcdef"
 # define HEXA_UPPER "0123456789ABCDEF"
 
 int				ft_printf(const	char *s, ...);
 int				ft_putchar(char c);
-long int		ft_puthexa(size_t nb, char *base, long len);
-long int		ft_phexa(size_t nb, long len);
-long			ft_putnbr(int n, int len);
-long			ft_putstr(char *s, int len);
+void        	ft_puthexa(unsigned long long nb, char *base, long *len);
+long int		ft_phexa(unsigned long long nb, int ispointer, char *base);
+void			ft_putnbr(int n, long *len);
+long			ft_putstr(char *s);
+void	        ft_countwrite(long *len, char c);
+long int	    ft_pnbr(int nb);
 #endif

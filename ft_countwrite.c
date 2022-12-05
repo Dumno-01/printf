@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_countwrite.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ffreze <ffreze@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,20 +12,8 @@
 
 #include "ft_printf.h"
 
-long	ft_putstr(char *s)
+void	ft_countwrite(long *len, char c)
 {
-	size_t	i;
-
-	i = 0;
-	if (s == NULL)
-	{
-		write(1, "(null)", 6);
-		return (6);
-	}
-	while (s[i])
-	{
-		write(1, &s[i], 1);
-		i++;
-	}
-	return (i);
+	write(1, &c, 1);
+	(*len)++;
 }
